@@ -41,4 +41,20 @@ public class MemoryMemberRepository implements MemberRepository{
         // member를 리스트로 반환해준다.
         return new ArrayList<>(store.values());
     }
+
+    // 테스트 케이스가 끝나면 데이터를 clear 해줘야 한다.
+    public void clearStore() {
+        store.clear();
+    }
+
 }
+/*
+    어떻게 동작하는지 검증하기 위해서 테스트 케이스를 작성해야 한다.
+
+    개발한 기능을 실행해서 테스트할 때 자바의 main 메서드를 통해서 실행하거나, 웹 애플리케이션의 컨트롤러를 통해서
+    해당 기능을 실행한다. 이러한 방법은 준비하고 실행하는데 오래 걸리고, 반복 실행하기 어렵고 여러 테스트를 한번에
+    실행하기 어렵다는 단점이 있다. 자바는 JUnit이라는 프레임워크로 테스트를 실행해서 이러한 문제를 해결한다.
+    /test/java/package/ 에 같은 이름의 package를 만들어준다.
+    즉, 현재 이 파일의 package는 repository이므로 해당 경로에도 repository package를 만들어주자.
+    그런 후, 관례상 MemoryMemberRepositoryTest라는 Class를 만들어준다.
+ */
