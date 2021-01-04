@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class HelloSpringApplication {
-	// welcom page인 index.html이 보여진다.
+	// welcome page인 index.html이 보여진다.
 	public static void main(String[] args) {
 		SpringApplication.run(HelloSpringApplication.class, args);
 	}

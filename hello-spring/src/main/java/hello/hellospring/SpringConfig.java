@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 // 직접 스프링 빈 작성
 @Configuration
 public class SpringConfig {
+/*
 
     @Bean
     public MemberService memberService() {
@@ -19,6 +20,7 @@ public class SpringConfig {
     public MemberRepository memberRepository() {
         return new MemoryMemberRepository();
     }
+*/
 
     /**
      * memberService(), memberRepository() 둘다 스프링 빈에 등록하고,

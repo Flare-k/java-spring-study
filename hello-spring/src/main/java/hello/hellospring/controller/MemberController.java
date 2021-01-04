@@ -10,7 +10,11 @@ public class MemberController {
     private final MemberService memberService;
 
     @Autowired
-    /** memberService를 스프링이 컨테이너에 있는 memberService 객체와 연결해준다.
+    public MemberController(MemberService memberService) {
+        this.memberService = memberService;
+    }
+
+    /* memberService를 스프링이 컨테이너에 있는 memberService 객체와 연결해준다.
      * MemberService는 순수한 Java 코드이기 때문에 스프링에서 알지 못한다. @Service라는 어노테이션을 추가해줘야 한다.
      * Controller와 Service를 연결시켜줘야 한다.Autowired를 쓰면 MemberController가 생성될 때 스프링 빈에 등록되어 있는
      * 객체를 가져다가 넣어준다. 이게 바로 Dependency Injection이다.
@@ -18,17 +22,15 @@ public class MemberController {
      *
      * Controller를 통해 외부 요청을 받고 Service에서 비즈니스 로직을 만들고 Repository에서 데이터를 저장하는 것이 정형화된 패턴이다.
      *
-     * <<스프링 빈을 등록하는 2가지 방법>>
-     *     - 컴포넌트 스캔과 자동 의존관계 설정 (내가 한 방법)
-     *     - 자바 코드로 직접 스프링 빈 등록하기
+     * <스프링 빈을 등록하는 2가지 방법>
+     *   - 컴포넌트 스캔과 자동 의존관계 설정 (내가 한 방법)
+     *   - 자바 코드로 직접 스프링 빈 등록하기
      *
      * 스프링은 스프링 컨테이너에 스프링 빈을 등록할 때, 기본적으로 싱글톤으로 등록한다.
      */
-    public MemberController(MemberService memberService) {
-        this.memberService = memberService;
-    }
 }
-/**
+
+/*
  * 스프링 컨테이너에 @Controller이 있으면 MemberController 객체를 생성해서 스프링이 넣어둔다.
  * 그리고 스프링이 관리한다.
  * 이것을 스프링 컨테이너에서 스프링 빈이 관리된다고 표현한다.
