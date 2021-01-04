@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class MemberService {
+
     private final MemberRepository memberRepository = new MemoryMemberRepository();
     /**
      * 이렇게 MemberRepository 변수 = new MemoryMemberRepository();로 선언한 이유?
