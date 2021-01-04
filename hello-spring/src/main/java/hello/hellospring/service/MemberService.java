@@ -9,7 +9,11 @@ import java.util.Optional;
 
 public class MemberService {
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+    // Test Case에서 Repository를 같이 관리하기 위함 = Dependency Injection
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
     /**
      * 이렇게 MemberRepository 변수 = new MemoryMemberRepository();로 선언한 이유?
      * 1) MemberRepository 인터페이스의 제약을 따르겠다는 의도
