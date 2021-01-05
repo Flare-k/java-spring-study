@@ -34,7 +34,6 @@ class MemberServiceIntegrationTest {
         Long saveId = memberService.join(member);
 
         //then
-        // 회원가입한게 리포지토리에 있는게 맞는지 확인하기 위한 검증
         // option+Cmd+V 하면 Optional 포맷이 만들어짐
         Member findMember = memberService.findOne(saveId).get();
         // option + Enter -> static으로 만들 수 있다.
@@ -56,17 +55,6 @@ class MemberServiceIntegrationTest {
         IllegalStateException e = assertThrows(IllegalStateException.class, () -> memberService.join(member2));
 
         assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
-/*  // shift + Cmd + / = comment
-        try {
-            memberService.join(member2);    // 예외 발생
-            fail("예외가 발생해야 합니다.");
-        }catch (IllegalStateException e) {
-            assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
-        }
-*/
-
-
-        //then
     }
 
 }
