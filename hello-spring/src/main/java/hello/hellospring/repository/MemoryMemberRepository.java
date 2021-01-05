@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import java.util.*;
 
 // interface를 implements한다.
-@Repository    //스프링에서 확인할 수 있도록..
 public class MemoryMemberRepository implements MemberRepository{
 
     // 메모리에 저장하는 방식으로 우선 채택.. (나중에 데이터베이스에 저장)
