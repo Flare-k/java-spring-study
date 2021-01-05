@@ -21,17 +21,34 @@ public class SpringConfig {
         this.dataSource = dataSource;
     }
 */
+    /*
     private EntityManager em;
 
     @Autowired
     public SpringConfig(EntityManager em) {
         this.em = em;
     }
+    */
+
+    /**
+     * [Spring Data JPA]
+     * Spring Container에서 MemberRepository를 찾는다.
+     * SpringDataJpaMemberRepository과 같은 인터페이스만 만들어놓으면 Spring Data JPA가 구현체를 만들어낸다.
+     * 그리고 Spring Bean에 등록한다.
+     */
+
+    private final MemberRepository memberRepository;
+
+    @Autowired
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     @Bean
     public MemberService memberService() {
-        return new MemberService(memberRepository());
+        return new MemberService(memberRepository);
     }
+/*
 
     @Bean
     public MemberRepository memberRepository() {
@@ -40,6 +57,7 @@ public class SpringConfig {
         //return new JdbcTemplateRepository(dataSource);
         return new JpaMemberRepository(em);
     }
+*/
 
     /**
      * memberService(), memberRepository() 둘다 스프링 빈에 등록하고,
